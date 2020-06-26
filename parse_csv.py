@@ -1,12 +1,13 @@
 import csv
 
 with open('names.csv','r') as csv_file:
-    csv_reader=csv.reader(csv_file) #takes each line in the file and splits the values in the string seperated by commas into a list of values
+    csv_reader=csv.DictReader(csv_file)     #reads each line as a dictionary with the field names as keys
 
     with open('new_names.csv','w') as new_file:
-        csv_writer=csv.writer(new_file,delimiter='\t')  #will convert each list back into a string with values spaced by tabs instead of commas
-        #next(csv_reader)    skips over the first list in the reader file
+        field_names=['first_name','last_name','email']
+        csv_writer=csv.DictWriter(new_file,fieldnames=field_names,delimiter='\t')   #writes the dictionary back as a string with values seperated by tabs
+        csv_writer.writeheader()    #fieldnames added  
 
         for line in csv_reader: #iterates over the lists of values in our reader file
-            #print(line[2])  only prints the third element of the list i.e. email
+            #print(line["email"])  only prints the 'email' keys of the dictionary
             csv_writer.writerow(line)
