@@ -3,7 +3,7 @@ import datetime as dt
 
 print(os.getcwd()) prints the current working directory
 use os.chdir('...') to change the current working directory  
-print(os.listdir()) prints the files and folders (int the current working directory by default)
+print(os.listdir()) prints the files and folders (int the current working directory by default)(list)
 
 os.makedirs('os_demo/demo_sub_dir') makes a new folder/directory within the current working directory
 os.rmdir('...') removes a single dir
